@@ -24,3 +24,31 @@ $(document).ready(function() {
 		setClass(arr_class[index]);
 	});
 })
+
+$('body').on('click', '.div-link a', function() {
+	$('.single').hide();
+	$('.div-link li').removeClass('active');
+	var openId = $(this).attr('href');
+	$(openId).show();
+	$(this).parent().addClass('active');
+
+    if ($('#a').is(':hidden')) {
+		$('.back').show();
+	} else {
+		$('.back').hide();
+	};
+
+    if ($('#c').is(':hidden')) {
+		$('.next').show();
+	} else {
+		$('.next').hide();
+	};
+});
+
+$('.back').click(function(){
+	$('.div-link .active').prev().children('a').click();
+});
+
+$('.next').click(function(){
+    $('.div-link .active').next().children('a').click();
+});
