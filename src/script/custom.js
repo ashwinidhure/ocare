@@ -1,36 +1,26 @@
-function slideSwitch() {
-    var $active = $('#slideshow li.active');
-    var $activeDot = $('.slider-control li.active');
+$(document).ready(function() {
+    var count= 1,
+    arr_class=['one', 'two', 'three', 'four', 'five'];
 
-    if ( $active.length == 0 ) {
-		$active = $('#slideshow li:last');
+    var myVar = setInterval(function() {
+        setClass(arr_class[count]);
+        count ++;
+        if(count == 4) {
+			count = 0;
+        //clearInterval(myVar);
+        }
+    }, 4000);
+
+    function setClass(name) {
+        $('#slider-content').removeClass();
+        $('#slider-control li').removeClass();
+		$('#slider-content').addClass(name);
+		$('#slider-control li').eq(count).addClass('active');
     }
 
-    if ( $activeDot.length == 0 ) {
-		$activeDot = $('.slider-control li:last');
-    }
-
-    // use this to pull the images in the order they appear in the markup
-    var $next =  $active.next().length ? $active.next(): $('#slideshow li:first');
-    var $nextDot =  $activeDot.next().length ? $activeDot.next(): $('.slider-control li:first');
-
-    $active.addClass('last-active');
-    $activeDot.addClass('last-active');
-
-    $next.css({opacity: 0.0})
-    .addClass('active')
-    .animate({opacity: 1.0}, 1000, function() {
-        $active.removeClass('active last-active');
-    });
-
-    $nextDot.addClass('active')
-    .animate({opacity: 1.0}, 0, function() {
-        $activeDot.removeClass('active last-active');
-    });
-}
-
-slideSwitch();
-
-$(function() {
-    setInterval( "slideSwitch()", 5000 );
-});
+	$('#slider-control li').click(function(){
+		var index = parseInt($(this).attr('data-index'));
+		count = index == 3 ? 0 : index + 1;
+		setClass(arr_class[index]);
+	});
+})

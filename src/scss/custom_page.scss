@@ -4,6 +4,10 @@
 .margin-0 {
 	margin: 0;
 }
+
+.container-margin {
+	margin: 100px auto;
+}
 body {
 	background: #fff;
 	font-family: "Poppins";
@@ -43,11 +47,6 @@ body {
 		font-weight: bold;
 		margin: 30px 0;
 		letter-spacing: 1px;
-	}
-}
-.container {
-	@media (min-width: 768px) {
-		margin: 100px auto;
 	}
 }
 .card {
