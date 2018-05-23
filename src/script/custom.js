@@ -34,25 +34,27 @@ $(document).ready(function() {
         $('#navbarSide').removeClass('open');
         $('.overlay').hide();
     });
+
+	$('.back').attr('disabled',true);
 })
 
 $('body').on('click', '.div-link a', function() {
-    $('.single').hide();
+    $('.tabcontents').hide();
     $('.div-link li').removeClass('active');
     var openId = $(this).attr('href');
     $(openId).show();
     $(this).parent().addClass('active');
 
     if ($('#a').is(':hidden')) {
-        $('.back').show();
+        $('.back').attr('disabled',false);
     } else {
-        $('.back').hide();
+        $('.back').attr('disabled',true);
     };
 
-    if ($('#c').is(':hidden')) {
-        $('.next').show();
+    if ($('#f').is(':hidden')) {
+        $('.next').attr('disabled',false);
     } else {
-        $('.next').hide();
+        $('.next').attr('disabled',true);
     };
 });
 
