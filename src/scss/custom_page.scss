@@ -78,6 +78,35 @@ body {
 		color: rgb(97, 97, 97);
 		margin-top: 20px;
 	}
+
+	/* Our work */
+	ul.div-link {
+		display: flex;
+	    flex-direction: column;
+	    border-bottom: 0;
+	    list-style-type: none;
+
+	    li {
+	    	border-bottom: 1px solid #e1e1e1;
+	    	list-style-type: none;
+
+	    	&:last-child {
+	    		border-bottom: 0;
+	    	}
+
+		    a {
+		    	color: #333;
+		    	font-weight: 600;
+
+		    	&.active, 
+		    	&:focus,
+		    	&:hover {
+		    		border-color: #e1e1e1 transparent transparent;
+		    		color: red;
+		    	}
+		    }
+	    }
+	}
 }
 .why-we-choose {
 	@media (min-width: 1024px) {

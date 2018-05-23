@@ -20,34 +20,42 @@ body {
 	nav {
 		background: #fff;
 		margin-top: 30px;
+		
+		@media (max-width: 991px) {
+			margin-top: 15px;
+		}
 		h2 {
 			font-family: "Blank Regular";
 			color: #fff;
 			background: red;
 			margin: 0;
 			font-size: 24px;
-			padding: 14px 30px;
+			padding: 18px 30px;
+
+			@media (max-width: 991px) {
+				padding: 10px 20px;
+			}
 		}
 		ul {
 			margin: 0;
-			padding: 12px 0;
+			padding: 20px 0 12px;
 			li {
 				padding: 0 15px;
-				a {
-					color: #333;
-					&:hover {
-						color: red;
-						text-decoration: none;
-					}
-					&.search, &.cart {
-						color: red;
-					}
+
+				@media (max-width: 1200px) {
+					padding: 0 10px;
 				}
 
-				&.active {
-					a {
+				a {
+					color: #333;
+
+					@media (max-width: 1200px) {
+						color: #2aace3;
+					}
+
+					&.active, &:hover {
 						position: relative;
-						color: red;
+						color: red;						
 
 						&:after {
 						    content: '';
@@ -56,6 +64,30 @@ body {
 						    border: 1px solid red;
 						    left: 50%;
 						    transform: translateX(-50%);
+						}
+					}
+					&:hover {
+						text-decoration: none;
+					}
+					&.search, &.cart {
+						color: red;
+
+						&.active, &:hover {
+							&:after {
+								display: none;
+							}
+						}
+					}
+				}
+
+				i {
+					@media (max-width: 1200px) {
+						color: red;
+						padding-top: 5px;
+
+						&:first-child {
+							color: inherit;
+							padding-top: 0;
 						}
 					}
 				}
@@ -75,14 +107,60 @@ body {
 				}
 			}
 		}
+		.menu-icon {
+			margin: 10px 10px 0 0;
+
+			a {
+				color: red;
+				margin-right: 5px;
+			}
+		}
+		.navbar-side {
+			height: 100%;
+			width: 250px;
+			position: fixed;
+			top: 0;
+			left: -300px;
+			padding: 0;
+			list-style: none;
+			background: #f7f7f9;
+			overflow-y: scroll;
+			z-index: 1000;
+			text-align: left;
+			transition: all .3s;
+
+			&.open {
+				left: 0;
+				transition: all .3s;
+			}
+			
+			li {
+				padding: 10px 15px;
+				margin: 0;
+				border-bottom: 1px solid #ccc;
+			}
+		}
+		  .overlay {
+			position: fixed;
+			display: none;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			cursor: pointer;
+			background: #5a5757;
+			opacity: 0.6;
+			z-index: 990;
+		}
 	}
 	h1 {
-		margin-top: 50px;
+		margin-top: 65px;
 		color: #fff;
 		font-family: "Lovelo Line Bold";
 	}
 	p {
 		color: #fff;
+		margin-bottom: 50px;
 	}
 	.btn {
 		border-radius: 0;
@@ -132,14 +210,16 @@ body {
 }
 #slider-control {
 	position: relative;
-	z-index: 11;
+	bottom: 15px;
 	width: 100px;
-	margin: 130px auto 0;
+	margin: 90px auto 0;
+
 	li {
 		width: 7px;
 		height: 7px;
 		background: #333;
 		display: inline-block;
+		cursor: pointer;
 
 		&.active {
 			border: 2px inset #ddd;
@@ -151,4 +231,224 @@ body {
 	margin: 0 auto;
 	background: rgba(11, 11, 11, 0.5);
 	padding: 20px;
+}
+footer {
+	background: #333;
+
+	>.container {
+		padding-top: 60px;
+    	padding-bottom: 20px;
+	}
+
+	.column-title {
+		color: #fff;
+		font-size: 15px; 
+	}
+
+	p.description {
+		color: #a0a0a0;
+		font-size: 12px;
+	}
+
+	.about-theme {
+		h6 {
+			color: red;
+		}
+		ul {
+			padding: 0;
+	
+			&.social-networking-links li {
+				display: inline-block;
+				margin: 0 2px 4px 0;
+				
+				a {
+					display: inline-block;
+					width: 30px;
+					height: 30px;
+					text-align: center;
+					border: 1px solid #a0a0a0;
+					color: #a0a0a0;
+					border-radius: 30px;
+
+					&:hover {
+						background: red;
+						color: #fff;
+						font-weight: 600;
+					}
+
+					i {
+						font-size: 12px;
+					}
+				}
+			}
+		}
+	}
+
+	.latest-news {
+		ul {
+			padding: 0;
+			margin-bottom: 0; 
+
+			li {
+				list-style: none;
+				border-bottom: 1px solid #a0a0a0;
+				margin-bottom: 15px;
+
+				&:last-child {
+					border-bottom: none;
+					margin-bottom: 0; 
+				}
+
+				img {
+					height: 50px;
+					width: 50px;
+					margin: 0 6px 10px 0;
+				}
+
+				.news-text {
+					width: 77%;
+					color: #fff;
+					font-size: 12px;
+					margin-bottom: 5px;
+
+					p {
+						margin-bottom: 0;
+					}
+					label.date {
+						color: #a0a0a0;
+					}
+				}
+			}
+		}
+
+		.subscribe-link {
+			font-size: 12px;
+
+			.fa-rss {
+				color: red;
+			}
+
+			a {
+				color: #fff;
+				text-decoration: underline;
+				padding-left: 2px; 
+			}			
+		}
+	}
+
+	.useful-links {
+		ul {
+			padding: 0;
+			columns: 2;
+			-webkit-columns: 2;
+			-moz-columns: 2;
+			
+			@media screen and (max-width: 1200px) {
+				columns: 1;
+				-webkit-columns: 1;
+				-moz-columns: 1;
+			}
+
+			@media screen and (max-width: 767px) {
+				columns: 2;
+				-webkit-columns: 2;
+				-moz-columns: 2;
+			}
+
+			li {
+				list-style: none;
+
+				&:before {
+					content: "\f101";
+  					font-family: 'Font Awesome\ 5 Free';
+					display: inline-block;
+					color: #c82333;
+					margin-right: 3px;
+					font-weight: 600;
+				}
+				a {
+					color: #a0a0a0;
+					font-size: 12px;
+					text-transform: capitalize;
+					padding: 6px 3px;
+					margin: 2px 0;
+
+					&:hover {
+						color: #fff;
+						text-decoration: none;
+					}
+				}
+			}
+		}
+	}
+
+	.mailing-list {
+		#userEmail {
+			background: #4a4a4a;
+			color: #fff;
+			font-size: 12px;
+			border-color: transparent;
+			border-radius: 0; 
+
+			&:focus {
+				outline: none;
+			}
+		}
+
+		.btn-send {
+			font-size: 12px;
+			margin: 0 0 0 3px;
+			border-radius: 0;
+			background: red;
+			color: #fff;
+
+			@media screen and (max-width: 1200px) {
+				margin: 3px 0 0 0;
+			}
+
+			@media screen and (max-width: 1200px) {
+				margin: 0 0 0 3px;
+			}
+		}
+
+		.sub-line {
+			color: #a0a0a0;
+			font-size: 10px;
+			text-transform: capitalize;
+			padding-top: 5px;
+		}
+	}
+
+	.footer-bar {
+		font-size: 12px;
+		padding-top: 25px;
+		margin-top: 25px;
+		border-top: 1px dashed #a0a0a0;
+
+		ul {
+			padding: 0;
+			margin-bottom: 0;
+
+			li {
+				display: inline-block;
+				padding: 0 10px;
+
+				a {
+					color: #a0a0a0;
+					text-transform: uppercase;
+
+					&:hover {
+						color: #c82333;
+						text-decoration: none;
+					}
+				}
+			}
+		}
+
+		.copyright {
+			color: #a0a0a0;
+			white-space: nowrap;
+			margin-left: 20px;
+		}
+	}
 }
