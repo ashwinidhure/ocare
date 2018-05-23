@@ -103,13 +103,14 @@ body {
                 border-color: #e1e1e1;
 
                 a {
-                    color: red;
+                    color: #FF5353;
                 }
             }
 
             a {
                 color: #333;
                 font-weight: 600;
+				display: block;
             }
         }
     }
@@ -147,7 +148,7 @@ body {
 			width: 100%;
 
 			.overlay-bottom {
-				background: red;
+				background: #FF5353;
 				color: #fff;
 				padding: 10px 0;
 				text-align: center;
@@ -165,8 +166,8 @@ body {
 				padding: 10px;
 
 				&:hover {
-					background: red;
-					border-color: red;
+					background: #FF5353;
+					border-color: #FF5353;
 					color: #fff;
 					transition: .5s ease;
 				}
